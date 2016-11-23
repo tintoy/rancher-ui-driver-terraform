@@ -1,0 +1,167 @@
+<section class="horizontal-form">
+  <div class="container-fluid">
+    {{!-- This partial contains the quantity, name, and description fields --}}
+    {{partial "host/add-common"}}
+
+    <div class="over-hr r-mt20 r-mb20">
+      <span>Dimension Data CloudControl</span>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2 form-label">
+          <label class="form-control-static">Datacenter</label>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.datacenter
+          }}
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">Network Domain</label>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.networkdomain
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2 form-label">
+          <label class="form-control-static">Image</label>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.imageName
+          }}
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-2 form-label">
+          <label class="form-control-static">VLAN</label>
+      </div>
+      <div class="col-sm-4 col-md-4">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.vlan
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">CPUs</label>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.cpuCount
+          }}
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-1"></div>
+      <div class="col-sm-4 col-md-2 form-label">
+        <label class="form-control-static">Memory (GB)</label>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.memory
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">SSH username</label>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.sshUser
+          }}
+        </div>
+      </div>
+      <div class="col-sm-2 col-md-1"></div>
+      <div class="col-sm-4 col-md-2 form-label">
+        <label class="form-control-static">SSH key</label>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            value=model.terraformConfig.sshKey
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2">
+      </div>
+      <div class="col-sm-4 col-md-4">
+      </div>
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">Initial SSH password</label>
+      </div>
+      <div class="col-sm-4 col-md-3">
+        <div class="input-group">
+          {{input type="password"
+            class="form-control"
+            value=model.terraformConfig.sshBootstrapPassword
+          }}
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">MCP username</label>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="input-group">
+          {{input type="text"
+            class="form-control"
+            placeholder="CloudControl user name"
+            value=model.terraformConfig.mcpUser
+          }}
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-md-2 form-label">
+        <label class="form-control-static">MCP password</label>
+      </div>
+      <div class="col-sm-6 col-md-4">
+        <div class="input-group">
+          {{input type="password"
+            class="form-control"
+            placeholder="CloudControl password"
+            value=model.terraformConfig.mcpPassword
+          }}
+        </div>
+      </div>
+    </div>
+
+    {{!-- This partial contains the Labels and Advanced Options fields --}}
+    {{partial "host/add-options"}}
+  </div>
+
+  {{!-- This component shows errors produced by validate() in the component --}}
+  {{top-errors errors=errors}}
+
+  {{!-- This component shows the Create and Cancel buttons --}}
+  {{save-cancel save="save" cancel="cancel"}}
+</section>
